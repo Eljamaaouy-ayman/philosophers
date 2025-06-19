@@ -3,42 +3,42 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eljamaaouyayman <eljamaaouyayman@studen    +#+  +:+       +#+        */
+/*   By: ael-jama <ael-jama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 15:29:48 by eljamaaouya       #+#    #+#             */
-/*   Updated: 2025/05/27 16:16:50 by eljamaaouya      ###   ########.fr       */
+/*   Updated: 2025/06/19 17:12:38 by ael-jama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int    ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
-    int		(i), (s);
-    long	r;
+	long	r;
 
-    i = 0;
-    s = 1;
-    r = 0;
-    if (!str)
-        return (-1);
-    while ((str[i]) && (str[i] <= 32))
-        i++;
-    if (str[i] == '+' || str[i] == '-')
-    {
-        if (str[i] == '-')
-            s *= -1;
-        i++;
-    }
-    while ((str[i]) && str[i] >= '0' && str[i] <= '9')
-    {
-        r = r * 10 + (str[i++] - 48);
-        if (r < 0 || r > INT_MAX)
-            return (-1);
-    }
-    if (str[i])
-        return (-1);
-    return (s * r);
+	int (i), (s);
+	i = 0;
+	s = 1;
+	r = 0;
+	if (!str)
+		return (-1);
+	while ((str[i]) && (str[i] <= 32))
+		i++;
+	if (str[i] == '+' || str[i] == '-')
+	{
+		if (str[i] == '-')
+			s *= -1;
+		i++;
+	}
+	while ((str[i]) && str[i] >= '0' && str[i] <= '9')
+	{
+		r = r * 10 + (str[i++] - 48);
+		if (r < 0 || r > INT_MAX)
+			return (-1);
+	}
+	if (str[i])
+		return (-1);
+	return (s * r);
 }
 
 int	ft_isdigit(int ch)
@@ -49,14 +49,14 @@ int	ft_isdigit(int ch)
 		return (1);
 }
 
-int ft_strlen(const char *str)
+int	ft_strlen(const char *str)
 {
-    int i;
-    
-    i = 0;
-    while(str[i])
-        i++;
-    return i;
+	int	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }
 
 char	*ft_strjoin(char const *s1, char const *s2)

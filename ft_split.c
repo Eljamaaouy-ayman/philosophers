@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eljamaaouyayman <eljamaaouyayman@studen    +#+  +:+       +#+        */
+/*   By: ael-jama <ael-jama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 15:30:31 by eljamaaouya       #+#    #+#             */
-/*   Updated: 2025/05/27 16:13:23 by eljamaaouya      ###   ########.fr       */
+/*   Updated: 2025/06/19 17:12:34 by ael-jama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
