@@ -6,7 +6,7 @@
 /*   By: ael-jama <ael-jama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 18:59:45 by eljamaaouya       #+#    #+#             */
-/*   Updated: 2025/06/19 17:11:52 by ael-jama         ###   ########.fr       */
+/*   Updated: 2025/06/21 14:17:34 by ael-jama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,6 @@ void	release_forks(t_philo *philo)
 
 	left_fork = philo->id - 1;
 	right_fork = philo->id % philo->data->num_philos;
-	if (philo->id % 2 != 0)
-		usleep(100);
 	if (philo->id % 2 == 0)
 	{
 		pthread_mutex_unlock(&philo->data->forks[left_fork]);

@@ -6,7 +6,7 @@
 /*   By: ael-jama <ael-jama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 13:22:53 by eljamaaouya       #+#    #+#             */
-/*   Updated: 2025/06/19 21:02:02 by ael-jama         ###   ########.fr       */
+/*   Updated: 2025/06/21 19:21:36 by ael-jama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,12 @@ int	check_meals(t_data *data)
 	}
 	if (data->num_philos == meals)
 	{
-		pthread_mutex_lock(&data->print_mutex);
 		pthread_mutex_lock(&data->death_mutex);
+		pthread_mutex_lock(&data->print_mutex);
 		data->dead = 1;
 		printf("all philosophers have finished their meals\n");
-		pthread_mutex_unlock(&data->death_mutex);
 		pthread_mutex_unlock(&data->print_mutex);
+		pthread_mutex_unlock(&data->death_mutex);
 		return (1);
 	}
 	return (0);
@@ -56,14 +56,14 @@ int	check_philo_death(t_data *data, int i, struct timeval current_time)
 	{
 		pthread_mutex_lock(&data->death_mutex);
 		data->dead = 1;
+		pthread_mutex_unlock(&data->death_mutex);
 		gettimeofday(&current_time, NULL);
 		timestamp = (current_time.tv_sec * 1000 + current_time.tv_usec / 1000
 				- data->start_time.tv_sec * 1000 - data->start_time.tv_usec
 				/ 1000);
 		pthread_mutex_lock(&data->print_mutex);
-		printf("%lld %d died", timestamp, data->philos[i].id);
+		printf("%lld %d died\n", timestamp, data->philos[i].id);
 		pthread_mutex_unlock(&data->print_mutex);
-		pthread_mutex_unlock(&data->death_mutex);
 		return (1);
 	}
 	return (0);
@@ -88,7 +88,7 @@ void	*monitor_death(void *arg)
 				return (NULL);
 			i++;
 		}
-		usleep(100);
+		usleep(1000);
 	}
 	return (NULL);
 }

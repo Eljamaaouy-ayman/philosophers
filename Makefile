@@ -3,7 +3,7 @@ NAME = philo
 OBJS = ${SRCS:.c=.o}
 CC = cc
 RM = rm -f
-CFLAGS = -Wall -Wextra -Werror -pthread #-g -fsanitize=thread
+CFLAGS = -Wall -Wextra -Werror -pthread# -g -fsanitize=thread
 
 all : ${NAME}
 

@@ -6,7 +6,7 @@
 /*   By: ael-jama <ael-jama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 17:04:46 by ael-jama          #+#    #+#             */
-/*   Updated: 2025/06/19 17:04:57 by ael-jama         ###   ########.fr       */
+/*   Updated: 2025/06/20 22:58:13 by ael-jama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,10 +81,7 @@ void	print_status(t_philo *philo, const char *status)
 			- (philo->data->start_time.tv_usec / 1000));
 	if (check_if_dead(philo))
 		return ;
-	if (!check_if_dead(philo))
-	{
-		pthread_mutex_lock(&philo->data->print_mutex);
-		printf("%lld %d %s\n", timestamp, philo->id, status);
-		pthread_mutex_unlock(&philo->data->print_mutex);
-	}
+	pthread_mutex_lock(&philo->data->print_mutex);
+	printf("%lld %d %s\n", timestamp, philo->id, status);
+	pthread_mutex_unlock(&philo->data->print_mutex);
 }

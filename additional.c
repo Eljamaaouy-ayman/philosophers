@@ -6,7 +6,7 @@
 /*   By: ael-jama <ael-jama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 17:02:12 by ael-jama          #+#    #+#             */
-/*   Updated: 2025/06/19 17:09:16 by ael-jama         ###   ########.fr       */
+/*   Updated: 2025/06/21 14:28:31 by ael-jama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ int	*parsing(int ac, char **av)
 	while (i < ac)
 	{
 		if (ft_atoi(av[i]) < 0)
-			return (printf("Error: Invalid argument %s\n", av[i]), exit(1),
-				NULL);
+			return (printf("Error: Invalid argument %s\n", av[i]), free(tab),
+				exit(1), NULL);
 		tab[i - 1] = ft_atoi(av[i]);
 		i++;
 	}
